@@ -10,6 +10,16 @@ export default {
         error: "#EA1919",
         correct: "#14D81C",
       },
+      padding: {
+        "1/4": "1.25rem",
+        20: "1.25rem",
+      },
+      width: {
+        480: "30rem",
+      },
+      height: {
+        17: "17rem",
+      },
     },
   },
   plugins: [],
