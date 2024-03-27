@@ -5,8 +5,10 @@ import validationScheme from "../login-schema";
 import axios from "axios";
 import { useState } from "react";
 import Success from "./Success";
+import useLogin from "../store/store";
 
-const ModalWindow = ({ isTrue, setIsTrue, allow, setAllow }) => {
+const ModalWindow = () => {
+  const { isTrue } = useLogin();
   const {
     register,
     handleSubmit,
@@ -19,10 +21,9 @@ const ModalWindow = ({ isTrue, setIsTrue, allow, setAllow }) => {
 
   async function onSubmit(data) {
     try {
-      let information = JSON.stringify(data);
       const response = await axios.post(
         "https://api.blog.redberryinternship.ge/api/login",
-        information,
+        JSON.stringify(data),
         {
           headers: {
             Accept: "application/json",
@@ -31,10 +32,6 @@ const ModalWindow = ({ isTrue, setIsTrue, allow, setAllow }) => {
         }
       );
       setStatusCode(response.status);
-      if (response.status == 204) {
-        setAllow(true);
-        console.log("macaco");
-      }
     } catch (error) {
       error.response.status === 422 ? setStatus(true) : setStatus(false);
     }
@@ -49,7 +46,8 @@ const ModalWindow = ({ isTrue, setIsTrue, allow, setAllow }) => {
       }`}
     >
       {statusCode ? (
-        <Success setIsTrue={setIsTrue} />
+        <Success
+        />
       ) : (
         <section className=" w-480 h-17 bg-white rounded-xl flex flex-col">
           <img src={x} className="float-right w-6 h-6" />

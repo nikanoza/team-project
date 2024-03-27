@@ -1,9 +1,13 @@
-const Success = ({ setIsTrue }) => {
+import useLogin from "../store/store";
+
+const Success = () => {
+  const { setIsFalse, setAllow } = useLogin();
   return (
     <div>
       <button
         onClick={() => {
-          setIsTrue(false);
+          setAllow();
+          setIsFalse();
         }}
       >
         კარგი
