@@ -6,9 +6,10 @@ import axios from "axios";
 import { useState } from "react";
 import Success from "./Success";
 import useLogin from "../store/store";
+import Error from "../svg/Error";
 
 const ModalWindow = () => {
-  const { isTrue } = useLogin();
+  const { isTrue, setIsFalse } = useLogin();
   const {
     register,
     handleSubmit,
@@ -46,23 +47,58 @@ const ModalWindow = () => {
       }`}
     >
       {statusCode ? (
-        <Success
-        />
+        <Success />
       ) : (
-        <section className=" w-480 h-17 bg-white rounded-xl flex flex-col">
-          <img src={x} className="float-right w-6 h-6" />
-          <h2>შესვლა</h2>
-          <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="email">ელ-ფოსტა</label>
+        <section className=" w-480 h-17 bg-white rounded-xl flex flex-col  ">
+          <section className="flex-grow px-5 ">
+            {" "}
+            <img
+              src={x}
+              className="float-right w-6 h-6 mt-2"
+              onClick={setIsFalse}
+            />
+          </section>
+          <h2 className="text-center text-2xl font-bold">შესვლა</h2>
+          <form
+            className="flex flex-col h-full px-6 pt-6 pb-10"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <label htmlFor="email" className="font-medium text-xs">
+              ელ-ფოსტა
+            </label>
             <input
+              placeholder="example@redberry.ge"
+              className={`px-4 py-3 mt-2 rounded-xl border-1.5 ${
+                errors.email ? "border-error" : "border-violet"
+              } mb-2 focus:outline-none`}
               onKeyDown={() => setStatus(false)}
               type="email"
               id="email"
               {...register("email")}
             ></input>
-            <p>{errors.email && errors.email.message}</p>
-            <p>{isStatus && "ელ ფოსტა ვერ მოიძებნა"}</p>
-            <button type="submit">შესვლა</button>
+            {errors.email && (
+              <div className="text-xs flex">
+                <Error />
+                <p className="pl-3 text-error text-xs">
+                  {errors.email.message}
+                </p>
+              </div>
+            )}
+
+            {isStatus && (
+              <div className="text-xs flex">
+                <Error onClick={() => {}} />
+                <p className="pl-3 text-error text-xs">
+                  ელ-ფოსტა ვერ მოიძებნა.
+                </p>
+              </div>
+            )}
+            <button
+              className="mt-6 w-full bg-violet py-2.5 text-white text-sm font-medium rounded-lg"
+              type="submit"
+            >
+              შესვლა
+            </button>
           </form>
         </section>
       )}

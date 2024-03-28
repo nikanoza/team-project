@@ -20,6 +20,9 @@ export default {
       height: {
         17: "17rem",
       },
+      borderWidth: {
+        '1.5': '1.5px', 
+      },
     },
   },
   plugins: [],

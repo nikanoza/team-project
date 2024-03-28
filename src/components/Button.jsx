@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Button = ({ text, fnc }) => {
   return (
@@ -9,6 +9,11 @@ const Button = ({ text, fnc }) => {
       {text}
     </button>
   );
+};
+
+Button.propTypes = {
+  text: PropTypes.string,
+  fnc: PropTypes.func,
 };
 
 export default Button;
