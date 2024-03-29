@@ -2,22 +2,13 @@
 import Header from "../components/Header";
 import ModalWindow from "../components/ModalWindow";
 
-const Home = () =>
-  // { isTrue, setIsTrue, allow, setAllow }
-  {
-    return (
-      <div>
-        <Header
-        // setIsTrue={setIsTrue} allow={allow} setAllow={setAllow}
-        />
-        <ModalWindow
-        // isTrue={isTrue}
-        // setIsTrue={setIsTrue}
-        // allow={allow}
-        // setAllow={setAllow}
-        />
-      </div>
-    );
-  };
+const Home = () => {
+  return (
+    <div>
+      <Header />
+      <ModalWindow />
+    </div>
+  );
+};
 
 export default Home;
