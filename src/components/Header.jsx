@@ -3,7 +3,7 @@ import Button from "./Button";
 import useLogin from "../store/store";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
-  let { isAllowed, setIsTrue } = useLogin();
+  let { isAllowed, toggleIsVisible } = useLogin();
   const navigate = useNavigate();
 
   return (
@@ -16,7 +16,7 @@ const Header = () => {
           fnc={() => navigate("/add-blog")}
         ></Button>
       ) : (
-        <Button text={"შესვლა"} fnc={setIsTrue} />
+        <Button text={"შესვლა"} fnc={toggleIsVisible} />
       )}
     </header>
   );

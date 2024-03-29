@@ -1,12 +1,10 @@
 import { create } from "zustand";
 
 const useLogin = create((set) => ({
-  isTrue: false,
+  isVisible: false,
   isAllowed: false,
-  setIsTrue: () => set((state) => ({ isTrue: (state.isTrue = true) })),
-  setIsFalse: () => set((state) => ({ isTrue: (state.isTrue = false) })),
-  setAllow: () => set((state) => ({ isAllowed: (state.isAllowed = true) })),
-  setDisallow: () => set((state) => ({ isAllowed: (state.isAllowed = false) })),
+  toggleIsVisible: () => set((state) => ({ isVisible: !state.isVisible })),
+  toggleIsAllowed: () => set((state) => ({ isAllowed: !state.isAllowed })),
 }));
 
 export default useLogin;

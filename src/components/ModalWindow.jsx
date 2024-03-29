@@ -9,7 +9,7 @@ import useLogin from "../store/store";
 import Error from "../svg/Error";
 
 const ModalWindow = () => {
-  const { isTrue, setIsFalse } = useLogin();
+  const { isVisible, toggleIsVisible } = useLogin();
   const {
     register,
     handleSubmit,
@@ -41,7 +41,7 @@ const ModalWindow = () => {
   return (
     <section
       className={`${
-        isTrue
+        isVisible
           ? "w-full h-full fixed inset-0 z-30 bg-dark bg-opacity-[0.24] flex justify-center items-center"
           : "hidden"
       }`}
@@ -55,7 +55,7 @@ const ModalWindow = () => {
             <img
               src={x}
               className="float-right w-6 h-6 mt-2"
-              onClick={setIsFalse}
+              onClick={toggleIsVisible}
             />
           </section>
           <h2 className="text-center text-2xl font-bold">შესვლა</h2>

@@ -3,7 +3,7 @@ import x from "../assets/add.svg";
 import Correct from "../svg/Correct";
 
 const Success = () => {
-  const { setIsFalse, setAllow } = useLogin();
+  const { toggleIsVisible, toggleIsAllowed } = useLogin();
   return (
     <section className=" w-480 h-17 bg-white rounded-xl flex flex-col  ">
       <section className="flex-grow px-5 ">
@@ -11,8 +11,8 @@ const Success = () => {
           src={x}
           className="float-right w-6 h-6 mt-2"
           onClick={() => {
-            setAllow();
-            setIsFalse();
+            toggleIsAllowed();
+            toggleIsVisible();
           }}
         />
       </section>
@@ -24,8 +24,8 @@ const Success = () => {
         <button
           className="mt-6  w-full bg-violet py-2.5 text-white text-sm font-medium rounded-lg"
           onClick={() => {
-            setAllow();
-            setIsFalse();
+            toggleIsAllowed();
+            toggleIsVisible();
           }}
         >
           კარგი
