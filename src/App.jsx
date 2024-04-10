@@ -6,8 +6,8 @@ function App() {
     <main className="w-full h-full">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/add-blog" element={<AddBlog />} />
+        <Route path="/Blog" element={<Blog />} />
+        <Route path="/Add-blog" element={<AddBlog />} />
       </Routes>
     </main>
   );
