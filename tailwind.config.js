@@ -9,6 +9,13 @@ export default {
         violet: "#5D37F3",
         error: "#EA1919",
         correct: "#14D81C",
+        gray: "#85858D",
+        yellow: "#D6961C",
+        green: "#15C972",
+        purple: "#B71FDD",
+        indigo: "#5D37F3",
+        lily: "#F4F3FF",
+        motetro: "#E4E3EB",
       },
       padding: {
         "1/4": "1.25rem",
@@ -21,7 +28,7 @@ export default {
         17: "17rem",
       },
       borderWidth: {
-        '1.5': '1.5px', 
+        1.5: "1.5px",
       },
     },
   },
